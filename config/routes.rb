@@ -1,6 +1,6 @@
 SassyArt::Application.routes.draw do
   get 'paintings/' => 'paintings#index'
-  root 'paintings#index'
+  root 'paintings#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
