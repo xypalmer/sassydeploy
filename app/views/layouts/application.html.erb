@@ -18,10 +18,11 @@
 
 
     FB.login(function(){
-      function PostMessage() {
-     FB.api('/me/feed', 'post', {message: 'Hello, world!'}); }
     }, {scope: 'publish_actions'});
 
+    function PostMessage() {
+     FB.api('/me/feed', 'post', {message: 'Hello, world!'}); }
+     
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
         console.log('Logged in.');
