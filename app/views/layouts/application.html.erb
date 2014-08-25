@@ -52,6 +52,10 @@
     version    : 'v2.1' // use version 2.1
   });
 
+  FB.login(function(){
+    FB.api('/me/feed', 'post', {message: 'Hello, world!'});
+  }, {scope: 'publish_actions'});
+
   // Now that we've initialized the JavaScript SDK, we call 
   // FB.getLoginStatus().  This function gets the state of the
   // person visiting this page and can return one of three states to
@@ -107,12 +111,11 @@
     }
   }, { scope: 'email,user_photos,publish_actions' });
 }
-function PostMessage() {
-  FB.api('/me/feed', 'post', {
-    message: "test"
-  });
-}
+
+
 </script>
+
+<input type="button" id="postButton" value="Post" onclick="PostMessage();" />
 
 <!--
   Below we include the Login Button social plugin. This button uses
