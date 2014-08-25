@@ -20,9 +20,9 @@
     FB.login(function(){
     }, {scope: 'publish_actions'});
 
-    function PostMessage() {
+    PostMessage = function () {
      FB.api('/me/feed', 'post', {message: 'Hello, world!'}); }
-     
+
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
         console.log('Logged in.');
