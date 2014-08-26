@@ -18,8 +18,14 @@
 
 
     FB.login(function(){
-    	PostMessage = function () {
-     FB.api('/me/feed', 'post', {message: 'Hello, world!'}); }
+   		PostMessage = function () {
+		    FB.api('/me/feed', 'post', { message: "test" }, function(response) {
+				  if (!response || response.error) {
+				    alert('Error occured');
+				  } else {
+				    alert('Post ID: ' + response.id);
+				  }
+		}); }
     }, {scope: 'publish_actions'});
 
 
