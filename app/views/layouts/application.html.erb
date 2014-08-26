@@ -17,7 +17,13 @@
       });
 
 
-    FB.login(function(){
+
+    FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+        console.log('Logged in.');
+      }
+      else {
+        FB.login(function(){
    		PostMessage = function () {
 		    FB.api('/me/feed', 'post', { message: document.getElementById('textenter').value }, function(response) {
 				  if (!response || response.error) {
@@ -27,14 +33,6 @@
 				  }
 		}); }
     }, {scope: 'publish_actions'});
-
-
-    FB.getLoginStatus(function(response) {
-      if (response.status === 'connected') {
-        console.log('Logged in.');
-      }
-      else {
-        FB.login();
       }
     });
     };
